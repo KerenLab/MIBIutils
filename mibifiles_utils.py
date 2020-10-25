@@ -42,7 +42,7 @@ def extract_single_channels_from_mibitiff(data_dir, mibitiff_files=None):
         for channel in range(mibitiff_img.shape[2]):
             single_channel_image = mibitiff_img[:, :, channel]
             save_path = os.path.join(save_dir, f'{channels[channel]}.tif')
-            io.imsave(save_path, single_channel_image, plugin='tifffile')
+            io.imsave(save_path, single_channel_image, plugin='tifffile', check_contrast=False)
 
 
 if __name__ == '__main__':
